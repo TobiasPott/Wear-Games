@@ -1,0 +1,43 @@
+﻿[HS][B:5][B:6][B:5][HS]
+[B:5][B:6][B:6][B:5]
+
+// Legend:
+[ST]	Stage Info
+		1. Numeric:	Block Width
+		2. Numeric:	Block Height
+[HS] 	Half-Sized Spacer
+[S]		Full-Sized Spacer
+[B:]	Block Definition
+		1. Numeric:	Structure Points (default = 1)
+		2. Numeric:	Points per SP (default = 50)
+		3. Hex :	Color (default = #FFF)
+		4. Hex :	Blend Color (default = #F00)
+		5: Bool:	Rounded Corners (default = TBA)
+	e.g.: [B:5:100:#FFF:#F0F]
+	
+
+Hint:	
+This Schema should be translated into an XML compatible for better editing.
+Storage should not be an issue at all but editing with a XML editor would help a lot
+
+To Do:
+Consider if it would be possible to read it from an image file of some sort and allow editing it in an image editor
+	=>	default blend color could be fixed to #F00 to remove it from required data structure
+	=>	points per SP might be fixed to 50 to remove it from required data structure (or move it into stage definition)
+	=>	rounded corners might be moved to the stage definition to remove it from block element structure
+	=>	ponder about a way to cover the [HS] spacer
+	=>	HS and S spacers could be determinded by the first two bytes of the alpha channel of the pixel
+	=>	Structure points could be determined by the upper six bytes of the alpha channel of the pixel
+	=>	Magic Color #000 could determine the [S] spacer block
+
+
+
+
+Game Ideas
+	1.	Add 'Lives' to the game to increase engagement and effort a player is putting into a game session
+		->	A ball should be lost when it hits the outside of the game area (might require adjustments to the block grid location)
+		->	The arena bounds should be changed to blocks at the sides as helpers instead of a circle based collision covering the entire arena
+	2.	Increase ball speed by default for a more rapid play-style
+	3.	Introduce power-up blocks (either randomized throughout the game or fixed per stage-definition)
+	4.	Ponder about a 'survival'-game mode where time runs out and the player gains additional time per destroyed block
+		->	The player needs to survive	as long as possible and game ends with a 'win' when all blocks are destroyed or a 'lose' when the time ran out with one or more blocks left

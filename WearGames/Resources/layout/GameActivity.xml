@@ -1,0 +1,40 @@
+
+<android.support.wear.widget.BoxInsetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:deviceIds="wear">
+    
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <weargames.ArenaView
+            android:id="@+id/arena"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            />
+        <weargames.PaddleView
+            android:id="@+id/paddle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:focusedByDefault="true"
+            />
+        <RelativeLayout
+            android:id="@+id/blocksLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+        />
+    </RelativeLayout>
+    <include layout="@layout/StageUI" />
+    <include layout="@layout/Scoreboard" android:visibility="invisible" />
+    <include layout="@layout/Title" android:visibility="visible"/>
+</android.support.wear.widget.BoxInsetLayout>
